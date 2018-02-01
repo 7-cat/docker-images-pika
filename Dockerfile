@@ -17,6 +17,13 @@ WORKDIR /pika
 
 RUN sh /pika/build.sh
 
+RUN sed -i 's/thread-num\s*:.*/thread-num : 4/g' /pika/pika.conf && \
+    sed -i 's/log-path\s*:.*/log-path : \/data\/pika\/log/g' /pika/pika.conf && \
+    sed -i 's/db-path\s*:.*/db-path : \/data\/pika\/db/g' /pika/pika.conf && \
+    sed -i 's/dump-path\s*:.*/dump-path : \/data\/pika\/dump/g' /pika/pika.conf && \
+    sed -i 's/log-path\s*:.*/log-path : \/data\/pika\/log/g' /pika/pika.conf
+#sed -i 's/pidfile\s*:.*/pidfile : \/data\/pika\/pika.pid/g' /pika/conf/pika.conf
+
 VOLUME /data/pika
 
 EXPOSE 9221
