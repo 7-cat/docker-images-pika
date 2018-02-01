@@ -11,10 +11,12 @@ RUN rpm -ivh https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm &
     yum -y install make && \
     yum -y install git
 
-ENV PIKA  /pika
+ENV PIKA  /data/pika
+
 COPY . ${PIKA}
 
 WORKDIR ${PIKA}
+
 RUN sh ${PIKA}/build.sh
 
 EXPOSE 9221
