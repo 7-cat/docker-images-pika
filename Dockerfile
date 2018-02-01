@@ -11,11 +11,11 @@ RUN rpm -ivh https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm &
     yum -y install make && \
     yum -y install git
 
-COPY . /data/pika
+COPY . /pika
 
-WORKDIR /data/pika
+WORKDIR /pika
 
-RUN sh /data/pika/build.sh
+RUN sh /pika/build.sh
 
 VOLUME /data/pika
 

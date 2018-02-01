@@ -3,7 +3,7 @@
 git clone https://github.com/Qihoo360/pika.git /tmp/code --depth 1
 cd /tmp/code
 make
-mv /tmp/code/output /data/pika
+mv /tmp/code/output /pika
 
 rm -rf /tmp/code
 
