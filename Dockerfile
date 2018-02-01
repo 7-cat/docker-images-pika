@@ -7,9 +7,8 @@ RUN yum -y install snappy-devel protobuf-compiler protobuf-devel bzip2-devel zli
 
 
 RUN cd /data1/download && \
-    git clone https://github.com/Qihoo360/pika.git && \
+    git clone https://github.com/Qihoo360/pika.git pika && \
     cd /data1/download/pika && \
-    git checkout -b v2.1.4 && \
     git submodule init && \
     git submodule update 
 
