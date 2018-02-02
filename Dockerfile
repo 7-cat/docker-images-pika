@@ -16,7 +16,7 @@ COPY . /pika
 
 WORKDIR /pika
 
-#RUN sh /pika/build.sh
+RUN sh /pika/build.sh
 
 RUN mkdir -p /data/pika/log && \
     mkdir -p /data/pika/db && \
@@ -28,8 +28,6 @@ RUN mkdir -p /data/pika/log && \
     sed -i 's/db-sync-path\s*:.*/db-sync-path : \/data\/pika\/dbsync/g' /pika/pika.conf && \
     sed -i 's/dump-path\s*:.*/dump-path : \/data\/pika\/dump/g' /pika/pika.conf 
 #sed -i 's/pidfile\s*:.*/pidfile : \/data\/pika\/pika.pid/g' /pika/conf/pika.conf
-RUN echo "222" && ls /pika
-RUN cat /pika/pika.conf
 
 VOLUME /data/pika
 
