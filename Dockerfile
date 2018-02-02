@@ -13,7 +13,7 @@ RUN rpm -ivh https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm &
 
 COPY . /pika
 
-RUN RUN echo "111" && ls /pika
+RUN echo "111" && ls /pika
 
 RUN cat /pika/pika.conf
 
