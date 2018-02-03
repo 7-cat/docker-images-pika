@@ -10,12 +10,13 @@ RUN rpm -ivh https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm &
     yum -y install gcc-c++ && \
     yum -y install make && \
     yum -y install git && \
-    mkdir /pika && \
-    cd /pika && \
-    touch test.txt &&\
     git clone https://github.com/Qihoo360/pika.git /tmp/code --depth 1 && \
     cd /tmp/code &&\
-    make
+    make && \
+    mkdir /pika && \
+    mv /tmp/code/output /pika && \
+    rm -rf /tmp/code &&\
+    yum -y remove snappy-devel protobuf-devel gflags-devel glog-devel gcc-c++ make git && yum clean all 
 
 # COPY . /pika
 
