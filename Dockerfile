@@ -14,20 +14,17 @@ RUN rpm -ivh https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm &
     cd /tmp/code &&\
     make && \
     mkdir /pika && \
-    mv /tmp/code/output /pika && \
+    cp -R /tmp/code/output/* /pika/ && \
+    rm -f /pika/conf/pika.conf && \
     rm -rf /tmp/code &&\
     yum -y remove snappy-devel protobuf-devel gflags-devel glog-devel gcc-c++ make git && yum clean all 
 
-# COPY . /pika
+COPY ./pika.conf /pika/conf/
 
 WORKDIR /pika
 
-# RUN sh /pika/build.sh
+VOLUME /data/pika
 
-# VOLUME /data/pika
+EXPOSE 9221
 
-# EXPOSE 9221
-
-#ENTRYPOINT /pika/output/bin/pika -c /pika/pika.conf
-
-ENTRYPOINT tail -f /pika/test.txt
+ENTRYPOINT /pika/bin/pika -c /pika/conf/pika.conf
